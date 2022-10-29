@@ -23,9 +23,6 @@ async function getGif(searchTerm) {
         req = await axios.get(reqString);
     }
 
-    console.log(reqString);
-    console.log(req);
-
     appendGifToDOM(req.data.data[0].images.downsized.url);
 }
 
