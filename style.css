@@ -1,0 +1,31 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: black;
+}
+
+#title {
+    color: white;
+}
+
+#header-container {
+    background: linear-gradient(gray, black);
+}
+
+#gif-container {
+    background-color: black;
+}
+
+#search {
+    background-color: lightgray;
+}
+
+#remove {
+    background-color: tomato;
+}
+
+button {
+    border-radius: 5px;
+}

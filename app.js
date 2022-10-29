@@ -26,6 +26,8 @@ async function getGif(searchTerm) {
 
 function appendGifToDOM(url) {
     let gif = document.createElement("img");
+    gif.classList.add('img-fluid');
+    gif.classList.add('py-5');
     gif.src = url;
 
     let colNum = imgCount % 3;
