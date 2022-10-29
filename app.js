@@ -5,22 +5,27 @@ let imgCount = 0;
 
 function handleSearch(e) {
     e.preventDefault();
-    let search = document.querySelector("input").value;
+    let search = document.querySelector("input");
+    let searchTerm = search.value;
 
-    if (!search) return;
+    if (!searchTerm) return;
 
-    try {
-        getGif(search);
-    } catch (error) {
-        
-    }
+    getGif(searchTerm);
     search.value = "";
 }
 
 async function getGif(searchTerm) {
     let reqString = "https://api.giphy.com/v1/gifs/search?api_key=" + giphyKey + "&q=" + searchTerm + "&rating=g&lang=en";
-    let req = await axios.get(reqString);
+    let req = await axios.get(reqString); 
+    
+    if (req.data.data.length === 0){
+        reqString = "https://api.giphy.com/v1/gifs/search?api_key=" + giphyKey + "&q=" + "404" + "&rating=g&lang=en";
+        req = await axios.get(reqString);
+    }
+
+    console.log(reqString);
     console.log(req);
+
     appendGifToDOM(req.data.data[0].images.downsized.url);
 }
 
